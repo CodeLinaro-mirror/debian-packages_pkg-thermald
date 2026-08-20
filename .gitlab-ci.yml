@@ -48,5 +48,5 @@ upload:
     - apt-get install -y --no-install-recommends curl ca-certificates
     - curl -fL https://install-cli.jfrog.io | sh
   script:
-    - jf c add clo-artifactory --url="${ARTIFACTORY_BASE_URL}" --user="${JFROG_USERNAME}" --password="${JFROG_PASSWORD}" --basic-auth-only
+    - jf c add clo-artifactory --url="${ARTIFACTORY_BASE_URL}" --user="${JFROG_USERNAME}" --password="${JFROG_PASSWORD}" --enc-password=false --interactive=false
     - jf rt upload "dist/*" "${ARTIFACTORY_TARGET}/"
