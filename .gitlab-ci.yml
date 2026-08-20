@@ -5,7 +5,8 @@ default:
 variables:
   RECIPE_REPO_URL: "https://github.com/qualcomm-linux/pkg-thermald"
   RECIPE_REPO_BRANCH: "qli-staging/debian/latest"
-  ARTIFACTORY_URL: "https://artifacts.codelinaro.org/artifactory/clo-571-pkg-thermald/"
+  ARTIFACTORY_BASE_URL: "https://artifacts.codelinaro.org/artifactory/"
+  ARTIFACTORY_TARGET: "clo-571-pkg-thermald"
   # Kubernetes resources
   KUBERNETES_CPU_REQUEST: "4"
   KUBERNETES_MEMORY_REQUEST: "16G"
@@ -47,5 +48,5 @@ upload:
     - apt-get install -y --no-install-recommends curl ca-certificates
     - curl -fL https://install-cli.jfrog.io | sh
   script:
-    - jf c add clo-artifactory --url="${ARTIFACTORY_URL}" --user="${JFROG_USERNAME}" --password="${JFROG_PASSWORD}"
-    - jf rt upload "dist/*" "${ARTIFACTORY_URL}"
+    - jf c add clo-artifactory --url="${ARTIFACTORY_BASE_URL}" --user="${JFROG_USERNAME}" --password="${JFROG_PASSWORD}"
+    - jf rt upload "dist/*" "${ARTIFACTORY_TARGET}/"
