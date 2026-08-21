@@ -5,7 +5,7 @@ default:
 variables:
   RECIPE_REPO_URL: "https://github.com/qualcomm-linux/pkg-thermald"
   RECIPE_REPO_BRANCH: "qli-staging/debian/latest"
-  ARTIFACTORY_BASE_URL: "https://artifacts.codelinaro.org/artifactory/"
+  ARTIFACTORY_BASE_URL: "https://artifacts.codelinaro.org"
   ARTIFACTORY_TARGET: "clo-571-pkg-thermald"
   # Kubernetes resources
   KUBERNETES_CPU_REQUEST: "4"
